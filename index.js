@@ -15,7 +15,7 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-//configure mongoose - DevUser -- DevPassword
+//configure mongoose - 
 mongoose.connect('mongodb://localhost/radio');
 
 //Set the port for the app
