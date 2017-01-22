@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var stationSchema = new Schema({
-  name: String
+  name: String,
+  description: String,
+  url: String
 });
 
 //export the Schema
