@@ -61,6 +61,26 @@ router.get('/station/:_id', function(req,res){
 
 });
 
+//single radio scraping
+router.get('/scrape/:_id', function(req,res){
+  Station.find({_id: req.params },function(err, station){
+    if (err)
+    res.send(err);
+
+      //Get the station details
+    let stationinfo = station[0].url;
+
+    internetradio.getStationInfo(stationinfo, function(error, stationinfo) {
+      console.log(stationinfo);
+      console.log(station);
+    }, internetradio.StreamSource.STREAM);
+
+    res.send('scrape');
+
+  });
+
+});
+
 router.get('/about', function (req, res) {
   res.send('about page');
 });
